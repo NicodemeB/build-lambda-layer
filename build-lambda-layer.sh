@@ -13,7 +13,7 @@ if [ $# != 1 ]; then
 fi
 
 echo "Step 1/2: Building AWS Lambda Layer"
-build=$(docker build --build-arg package=$1 -t lambda_layer_image . 2>/dev/null)
+build=$(docker build --build-arg package=$1 -t lambda_layer_image . )
 if [ $? -eq 0 ]; then
     echo " ---> Successfully built"
 else
