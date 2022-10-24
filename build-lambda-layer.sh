@@ -22,13 +22,13 @@ else
 fi  
 
 echo "Step 2/2: Coping AWS Lambda Layer"
-run=$(docker container run --rm -d --name $1_container lambda_layer_image 2>/dev/null)
+run=$(docker container run --rm -d --name lambda_layer_build_container lambda_layer_image 2>/dev/null)
 
-cp=$(docker cp $1_container:/lambda_layer/$1.zip . 2>/dev/null)
+cp=$(docker cp lambda_layer_build_container:/lambda_layer/$1.zip . 2>/dev/null)
 
 if [ $? -eq 0 ]; then
     echo " ---> Successfully copied to `ls $PWD/$1.zip`"
-    rm=$(docker container rm $1_container 2>/dev/null)
+    rm=$(docker container rm lambda_layer_build_container 2>/dev/null)
 else
   echo " ---> Error: Copying failed" 
   exit 1
