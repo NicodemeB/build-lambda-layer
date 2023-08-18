@@ -11,7 +11,7 @@ RUN mkdir -p /python/lib/python3.9/site-packages \
 
 ARG package
 
-RUN pip3 install $package -t /python/lib/python3.9/site-packages
+RUN pip3 install --platform manylinux2014_x86_64 --only-binary=:all: --upgrade $package -t /python/lib/python3.9/site-packages
 
 RUN chmod -R 755 /python/lib/python3.9/site-packages \
     && zip -r /lambda_layer/$package.zip /python/lib/python3.9/site-packages
