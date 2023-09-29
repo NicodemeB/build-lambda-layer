@@ -16,7 +16,7 @@ Install [Docker](https://docs.docker.com/install/) on your local machine.
 ## Installation
 Clone this repo to your local machine.
 ```shell
-$ git clone https://github.com/bluegridio/build-lambda-layer.git
+$ git clone https://github.com/gmuslia/build-lambda-layer.git
 $ cd build-lambda-layer
 ```
 
@@ -24,6 +24,9 @@ $ cd build-lambda-layer
 Run the script and provide the package name as first argument. 
 ```shell
 $ ./build-lambda-layer.sh curl
+$ ./build-lambda-layer.sh pyOpenSSL
+$ ./build-lambda-layer.sh pandas
+$ ./build-lambda-layer.sh confluent-kafka
 ```
 
 ![](http://g.recordit.co/fDlhSOtlZB.gif)
